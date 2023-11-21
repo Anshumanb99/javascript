@@ -1,0 +1,302 @@
+const accountId=144553;
+let accountEmail="anshuman@gmail.com"
+var accountPassword="12345"
+accountCity="Jaipur"
+let accountState
+ 
+//accountId=2
+console.log(accountId);
+console.table([accountId,accountEmail,accountPassword,accountCity,accountState])
+console.log(typeof(accountCity))
+/*
+Prefer not to use var because of issue in block scope and functional scope
+*/
+
+
+
+
+-------------------------------------------------------------------------------------------
+"use strict";//treat all JS code as newer version
+
+//alert("Hello");// we are using node js not browser
+
+let name="anshu" // string
+let age=3 //number
+let isLoggedIn=false //boolean
+
+//number=>2 to the power 53
+//bigint: only for really large number
+//boolean=>true/false. 
+//null=>in JS null is a stand alone value and ia  a data type in js. NUll is a reptresentation of a empty value
+//undefined=> when we dont define a value. we have declared variable but not assigned a value
+//symbol => when we talk about unique things we use symbols
+
+//object
+
+console.log(typeof(null)); //output:object
+console.log(typeof(undefined)); // output:undefined
+
+
+---------------------------------------------------------------------------------------------------
+let score=33
+let nullCheck=null;
+let undefinedCheck=undefined
+let testScore="33abc"
+let booleanCheck=true
+
+console.log(typeof score)
+
+let valueInNumber=Number(score)
+let testvalueInNumber=Number(testScore)
+let nullvalueInNumber=Number(nullCheck)
+let undefinedvalueInNumber=Number(nullCheck)
+let booleanValueeInNumber=Number(booleanCheck)
+
+console.log(typeof valueInNumber)
+console.log(typeof testvalueInNumber)
+console.log(typeof nullvalueInNumber)
+console.log(typeof undefinedvalueInNumber)
+console.log(typeof booleanValueeInNumber)
+ 
+
+console.log(testvalueInNumber)
+//NaN is a special type in js , testvalueInNumber got converted to number but contain the value as NaN. NaN stands for not a number but its type is number
+console.log(nullvalueInNumber)
+console.log(undefinedvalueInNumber)
+console.log(booleanValueeInNumber)// true=>1;false=>0
+
+
+let isLoggedIn=1 //output:true
+// let isLoggedIn="hitesh"// op: gtrue
+//let isLoggedIn="" //op:false
+let booleanIsLoggedIn=Boolean(isLoggedIn)
+console.log(booleanIsLoggedIn)
+
+console.log("----------------------")
+let someNumber=33
+let StringNumber=String(someNumber)
+console.log(StringNumber)
+console.log(typeof StringNumber)
+
+
+
+console.log("*****************OPERATIONS****************")
+
+let value=3
+let negValue=-value
+console.log(negValue)
+/*console.log(2+2)
+console.log(2-2)
+console.log(2*2)
+console.log(2**3)
+console.log(2/2)
+console.log(2%2)*/
+
+let str1="Hello"
+let str2=" Hitesh"
+let str3=str1+str2
+console.log(str3)
+
+console.log("*****************JS tricky cases****************")
+
+console.log("1"+2)  //op:12
+console.log(1+"3")   //op:13
+console.log("1"+2+2) //op:122
+console.log(2+2+"1")  //op:41  // first added 2+2 and then concat string 1
+console.log(true)
+console.log(+true) // true is boolean and then conversion happened thats why the conversion took place and it became 1
+
+let num1,num2,num3
+num1=num2=num3=2+2
+console.table([num1,num2,num3])
+
+let gameCounter=100
+gameCounter++
+console.log("gameCounter:"+gameCounter)
+++gameCounter
+console.log("gameCounter:"+gameCounter)
+//in prefix values are incremented first and in post firx values are incremented later
+
+-----------------------------------------------------------------------------------------------------------------
+
+console.log("2">1);
+console.log("02">1);
+
+console.log(null>0)
+console.log(null==0)
+console.log(null>=0)
+//type conversion convert treat null as a number and convert it to 0 thats why 0>0 is false and 0>=0 is true. It is really confusing so we should avoid it
+
+console.log(undefined>0)
+console.log(undefined==0)
+console.log(undefined>=0)
+
+//comparator and equality operatyor have different working. Thats why == and === are important.
+
+console.log("-----------------------  == and === difference----------------");
+
+console.log("2"==2); //lose check, only checks the value(here conversion took place , therefore they are able to compare value between string and number)
+console.log("2"===2); // strict check as it checks the value as well as the datatype
+
+
+
+--------------------------------------------------------------------------------------------------
+
+const name="Anshuman"
+const repoCount=20
+
+console.log(`Hello my name is ${name} and my repo count is ${repoCount}`)
+
+const gameName=new String("AnshumanB")
+console.log(gameName);
+console.log(gameName.__proto__);
+
+console.log(gameName.length)
+console.log(gameName.toUpperCase());
+console.log(name.toUpperCase());
+console.log(gameName.charAt(3));
+console.log(gameName.indexOf("n"))
+
+console.log("*******************************");
+
+let newString=gameName.substring(0,4);
+console.log(newString);
+const anotherString=gameName.slice(-8,4)
+console.log(anotherString);
+
+
+const newStringOne="    hitesh      "
+console.log(newStringOne);
+console.log(newStringOne.trim());
+
+const url="https://hitesh.com/hitesh%20choudhary"
+
+console.log(url.replace("%20","-"));
+console.log(url.includes("hit"));
+
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+const words = str.split(' ');
+console.log(words);
+console.log(words[3]);
+
+----------------------------------------------------------------------------------------
+
+const score=400
+
+const balance=new Number(100)
+ console.log(balance)
+ console.log(typeof balance.toString());
+ console.log(balance.toFixed(3));
+ let otherNumber=123.89477
+ console.log(otherNumber.toPrecision(3));
+ console.log(otherNumber.toPrecision(4));
+
+ const hundreds=1000000
+ console.log(hundreds.toLocaleString());
+ console.log(hundreds.toLocaleString("en-IN"));
+
+
+ console.log("*******************MATHS********************************");
+
+ console.log(Math.abs(-4));
+ console.log(Math.round(4.6));
+ console.log(`ceil value takes the higher end ${Math.ceil(4.9)}`);
+ console.log(`floor value takes the lower end ${Math.floor(4.9)}`);
+console.log(Math.min(2,1,4,6));
+console.log(Math.max(9,2,11,0));
+console.log(Math.random());// its value always comes between 0 and 1
+
+const min=1;const max=6;
+console.log((Math.round(Math.random()*10)+1));
+
+---------------------------------------------------------------------------
+
+let myDate=new Date();
+console.log(myDate);
+console.log(myDate.toString());
+console.log(myDate.toString());
+console.log(myDate.toDateString());
+console.log(typeof myDate);
+let myCreateDate=new Date(2023,0,23);
+console.log(myCreateDate.toLocaleString());
+console.log(Date.now())
+console.log(myCreateDate.getDate());
+console.log(myCreateDate.getTime());
+console.log(myCreateDate.getTime());
+console.log(Math.round(Date.now()/12) );
+
+let newDate=new Date();
+console.log(newDate.getMonth());
+console.log(newDate.getDate());
+console.log(newDate.getDay());
+
+console.log(`Todays date is ${newDate.getDate()}-${newDate.getMonth()+1}-${newDate.getFullYear()}`);
+
+
+------------------------------------------------------------------------------------
+
+//datatypes are categorized into two types premitive and non-premitive based on how they are stored in memory and how they are accessed
+
+//premitive: 7 types String, Number, Boolean, BigIntnull,undefined ,Symbol
+
+const score=100
+const scorreValue=100.3
+const isLoggedIn=true
+const ooutsideTemp=null
+let userEmail;//its value at present is undefined
+
+const id=Symbol("123")
+const anotherId=Symbol("123")
+
+console.log(id)
+console.log(anotherId);
+console.log(id===anotherId);
+
+
+let x = BigInt("9999999999999999");
+console.log(typeof(x));
+
+
+
+
+//non-premitive(reference type) : Arrays, Objects, functions
+
+const heroes=["shaktiman","nagraj","doga"]
+let myObj={
+    name:"Anshuman",
+    age:22
+}
+
+const myFunc=function(){
+    console.log("Hello world")
+}
+myFunc();
+console.log(typeof myFunc);
+console.log(typeof ooutsideTemp);
+
+//if we check typeof of a variable having value null tyen it will return object
+
+console.log("***************************************************");
+
+//stack and heap memory
+//in premitive type the stack memory is used and in non-premitive type heap memory is used
+// whenever stack memory is used we get a copy of the declared variable.
+//whenever we use heap memory and a object or else is declared in heap then we get the reference to orignal value. SO any changes made are reflected in orignal value.
+
+let myYoutubeName="anshu.com" 
+let anotherYoutubeName=myYoutubeName // here it got copy in the stack mmemory, so any changes made wont be reflected on orignal data
+anotherYoutubeName="behera.com"
+console.log(myYoutubeName)
+console.log(anotherYoutubeName);
+
+let obj1={
+    name:"Anshuman",
+    age:23
+}
+let obj2=obj1 //here both obj1 and obj2 both get the same refernce in the heap, so any changes made will be reflected on the ob ject directly
+
+obj2.name="Sipu"
+
+console.log(obj1.name)
+console.log(obj2.name);

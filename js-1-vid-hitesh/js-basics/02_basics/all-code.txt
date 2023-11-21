@@ -1,0 +1,173 @@
+const myArray=[12,32,1,45,2]
+//js arrays are resizable, we can add more elements after declaring it if required
+console.log(myArray);
+console.log(myArray[0]);
+//in js the array-copy-operations create shallow copy(shallow copy means it share the same reference point, as a result changes are declared in the orignal array as well)
+//there is also deep copy present in which the changes made is not reflected in the orignal array
+
+const myHeros=["ironMan","batMan"]
+console.log(myHeros[1]);
+const myArr=new Array(1,2,3,4,5)
+console.log(myArr[1]);
+myArr.push(6)
+myArr.push(7)
+console.log(myArr);
+myArr.pop()
+console.log(myArr);
+
+myArr.unshift(9);
+//it will add the element 9 to the the beginning of the array and will shift all element by one to the right 
+console.log(myArr);
+
+myArr.shift();
+//in shift the elment from the beginning got removed
+console.log(myArr);
+
+
+console.log(myArray);
+console.log(myArray.shift());
+console.log(myArray);
+
+console.log(myArr.includes(6));
+console.log(myArr.indexOf(3));
+console.log(myArr.indexOf(9));// if element is not pres3nt then it will return -1
+
+const newArr=myArr.join();// join will convert thr array into string type
+console.log(myArr);
+console.log(typeof newArr);
+console.log(newArr);
+
+console.log("*************************");
+
+//slice , splice
+
+//main difference between slice and splice is that the slice dont change the orignal array but splice changes the orignal array.
+console.log("A", myArr);
+const myn1=myArr.slice(1,3)
+console.log(myn1);
+console.log("B", myArr);
+const myn2=myArr.splice(1,3)
+console.log(myn2)
+console.log("C", myArr);
+
+console.log("---------------------------Arrays-part2----------------------------------");
+
+const marvel_heroes=["thor","Ironman","spiderman"]
+const dc_heroes=["superman","flash","batman"];
+//array will get inside the array
+//marvel_heroes.push(dc_heroes)
+console.log(marvel_heroes);
+console.log(marvel_heroes[3]);
+//console.log(marvel_heroes[3][1]);
+marvel_heroes.concat(dc_heroes);
+let all_heroes=marvel_heroes.concat(dc_heroes)
+console.log(all_heroes);
+//push perform action on the existing array but the concat returns a new array
+
+//using the spread operator(as we added ... this made all the elements individual instead of keeping it as array)
+const all_new_heroes=[...marvel_heroes,...dc_heroes];
+console.log(all_new_heroes);
+
+
+//flat property make the unorganised array organised into a singlr array
+const anotherArray=[1,2,3,[4,5,6],7,[6,7,[4,5]]]
+const real_another_array=anotherArray.flat(Infinity);
+console.log(real_another_array);
+
+//chacking if its an array or not
+console.log(Array.isArray("ANshuman"));
+//converting the data to an array
+console.log(Array.from("Anshuman"));
+let myName="Anshuman Behera"
+console.log(Array.from(myName));
+console.log(typeof myName);
+
+//it cant convert object to an array so it will return an empty string
+console.log(Array.from({name:"Anshuman"}));//intresting
+
+
+let score1=100
+let score2=200
+let score3=300
+
+console.log(Array.of(score1,score2,score3));
+
+--------------------------------------------------------------------------------------
+//singleton: if we create an object from constructor the  it create singleton object(meaning one of its kind)
+//if we create object using literal then we dont get singleton object but if we declare it using constructor then we get single ton object
+
+//to create oobject using constructor we use Object.create
+
+
+//object literals
+const jsUser={
+    name:"Anshuman",
+    "full Name":"Anshuman Behera",// this cant be accessed through dot operator
+    age:23,
+    location:"Bhubaneswar",
+    email:"anshuman@gmail.com",
+    isLoggedIn:false,
+    lastLoginDate:["monday","wednesday","saturday"]
+
+}
+
+console.log(jsUser.email);
+//console.log(jsUser[email]);  //it will throw error 
+console.log(jsUser["email"]);
+console.log(jsUser.name);
+console.log(jsUser["full Name"]);
+
+jsUser["email"]="anshuman@chatgpt.com"
+
+
+//changing the value of object
+console.log(jsUser["email"]);
+console.log(jsUser);
+
+//to freeze an object, so that no one can change its value, we do this
+/*Object.freeze(jsUser);
+jsUser["email"]="anshuman@microsoft.com"
+console.log(jsUser);*/
+
+
+jsUser.greetings=function(){
+    console.log("Hello JS user");
+}
+jsUser.greetings2=function(){
+    console.log(`Hello JS user ${this["full Name"]}`);
+}
+console.log(jsUser.greetings);
+console.log(jsUser.greetings());
+console.log(jsUser.greetings2());
+--------------------------------------------------------------------------------------
+
+
+// const fbUser=new Object()//singleton object example
+
+const fbUser={}
+fbUser.id="123abc"
+fbUser.name="Anshuman"
+fbUser.isLoggedIn=false
+// console.log(fbUser);
+
+//system by default treats the key in object as string
+ const regularUser={
+     email:"sum@gmail.com",
+     fullName:{
+         userFullname:{
+             firstName:"Hitesh",
+             lastName:"Chaudhary"
+         }
+     }
+ }
+
+ console.log(regularUser.fullName.userFullname.firstName);
+//optional chaining
+
+const obj1={1:"a",2:"b"}
+const obj2={3:"a",4:"b"}
+// const obj3=Object.assign(obj1,obj2);
+// const obj3={obj1,obj2}
+const obj3=Object.assign({},obj1,obj2)
+console.log(obj3);
+

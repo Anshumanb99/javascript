@@ -1,0 +1,236 @@
+//function defination
+function sayMyName(){
+    console.log("H");
+    console.log("I");
+    console.log("J");
+    console.log("K");
+    console.log("L");
+}
+//function reference
+//sayMyName
+
+//function execution
+sayMyName();
+
+function addTwoNumbers(number1,number2){
+    console.log(number1+number2); 
+}
+addTwoNumbers(23,32);
+function addTwoNumbersAgain(number1,number2){
+    return number1+number2; 
+}
+const result=addTwoNumbersAgain(12,32);
+console.log("Result is: ",result);
+
+function loginUserMessage(username="Sam"){
+     if(username===undefined){
+       
+        console.log("please enter a username");
+    }else{
+        return `${username} just logged in`
+    }
+    
+}
+console.log(loginUserMessage());
+// console.log(loginUserMessage("Anshuman"));
+console.log(!undefined);
+
+
+//rest and spread operator both uses ...   .For rest ... means combine and return back
+//we used rest oprator in front of nums
+function calculateCartPrice(...nums){
+return nums;
+}
+console.log(calculateCartPrice(100,200,300,400));
+
+function calculateCartPrice1(val1,val2,...nums1){
+    return nums1;
+}
+console.log(calculateCartPrice1(100,200,300,400));
+ 
+const user={
+    username:"hitesh",
+    price:199
+}
+function handleObject(anyObject){
+console.log(`username:${anyObject.username} and price:${anyObject.price}`);
+}
+handleObject(user);
+handleObject({
+    username:"ankit",
+    price:189  
+});
+
+const myNewArray=[100,200,300,400];
+function returnSecondValue(getArray){
+    return getArray[1];
+}
+console.log(returnSecondValue(myNewArray));
+console.log(returnSecondValue([10,11,12,13]));
+-----------------------------------------------------------------------------------
+
+
+
+//curly braces is known as scope
+var c=1000;
+console.log(c);
+if(true){
+    let a=10;
+    const b=20;
+    var c=30;
+}
+//a and b wont be accessable from outside the scope but c will be accessable. Thats why we should try to avoid var as it might create confusion as c is declared 2 times and value of c keeps changing
+// console.log(a);
+// console.log(b);
+console.log(c);
+
+// code inside curly braces that is considered its own block scope
+//code outside curly braces is called global scope and they can be access everywhere.
+
+let d=100;
+if(true){
+    // let d=10;
+    let e=200;
+    console.log("d:",d);
+    console.log("e:",e);
+}
+//will throw error as e has blok scope and cant be ccessed outside its scope area
+//console.log("e:",e);
+
+
+//adult cant borrow from kids but kids can borrow from adult. similarly two() can acess one() properties but one() cant access two() properties.
+
+function one(){
+    const username="anshuman";
+    function two(){
+        //username can be accessed as username is global scope for two()
+        const website="youtube";
+        console.log(username);
+    }
+    //will throw error as websit cant be accessed because its out of scope of one()
+    // console.log(website);
+    two();
+}
+one();
+/* -------------------------------------*/
+if(true){
+    const username="hitesh";
+    if(username==="hitesh"){
+        const website=" youtube";
+        console.log(username+website);
+    }
+    //will throw error as website is block scope of nested if block
+    // console.log(website);
+    
+}
+//will throw error as username is block scope of if()
+//console.log(username);
+/* -------------------------------------*/
+
+//hoistig example
+console.log(addone(5));
+function addone(num){
+return num+1;
+}
+
+//will throw error :Cannot access 'addtwo' before initialization. This error take plce as we along with function declaration , we hold it in a variable   
+/*console.log(addtwo(5));
+const addtwo=function(num){
+return num+1;
+}*/
+
+
+
+----------------------------------------------------------------------------------------------------
+//when we are referring the curent context/scope,username or reference then we use this keyword.
+
+const user={
+    username:"hitesh",
+    price:999,
+    welcomeMessage: function(){
+        //it will throw error if we dont use this
+        // console.log(`${username},welcome to website`);
+        console.log(`${this.username},welcome to website`);
+        console.log(this);
+    }
+}
+user.welcomeMessage();
+user.username="sam";
+user.welcomeMessage();
+//in node environment the this referes to an empty object
+//in browser this refers to a window object
+//in browser the global object is the window object
+console.log(this);
+
+
+function one(){
+    console.log(this);
+}
+one();
+
+function two(){
+    //we cant use this inside function as it only works with objects
+    const username="anshuman";
+    console.log(this.username);
+}
+two();
+
+//it will give output as undefined
+// const chai=function(){
+//     let username="Anshuman";
+//     console.log(this.username);
+
+// }
+// chai();
+
+const chai=()=>{
+
+    let username="hitesh";
+    console.log(this.username);
+    console.log(this);
+}
+chai();
+console.log("-----------------Arrow functions----------------");
+
+//implicit return: need to put return keyword
+const addtwo=(num1,num2)=>{
+    return num1+num2;
+}
+console.log(addtwo(2,4));
+
+//implicit return: no need to put return
+const multiplytwo=(num1,num2)=>num1*num2;
+console.log(multiplytwo(2,4));
+
+//if we are using curly races then return keyword is must but if we are using () then return keyword not required
+const multiplythree=(num1,num2,num3)=>(num1*num2*num3);
+console.log(multiplythree(2,4,5));
+
+//in arrow function we need to wrap objects in bracket  to return it.
+const objReturn=()=>({username:"anshuman",id:23});
+console.log(objReturn());
+
+
+const myArray=[2,3,4,5,6];
+myArray.forEach((num)=>{
+   
+    console.log( num*10);
+});
+console.log(myArray);
+
+------------------------------------------------------------------------------------------
+//Immediately Invoked Function Expressions(IIFE)
+//iife is a function that is executed immidiately and in order to avoid pollution caused by global scope variable or declaration we use iife
+
+
+//the first parenthesis is for function defination and the second perenthesis is for function call 
+
+//named iife
+(function chai(){
+    console.log(`DB CONNECTED`);
+})();
+
+//unnamed iife
+((name)=>{
+    console.log(`DB CONNECTED ${name}`);
+})("Anshuman");

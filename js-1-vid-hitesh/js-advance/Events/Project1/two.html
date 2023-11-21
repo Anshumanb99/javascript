@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project1</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <!-- <button id="stop" onclick={meth()}>Stop</button> -->
+    <button id="stop">Stop</button>
+
+</body> 
+<script>
+//    setTimeout(()=>{
+//         console.log("hello");
+//     },2000);
+
+// setInterval(()=>{
+//     console.log("HELLO");
+// },1000)
+
+// function meth(){
+//     setInterval(()=>{
+//         console.log("clicked");
+//     },1000)
+// }
+
+const sayHi=()=>{
+    console.log("HIi");
+}
+
+
+
+// const updateH1=()=>{setTimeout(()=>{
+//     document.querySelector("h1").innerHTML="Best js course ever";
+// },2000)};
+
+const changeText=()=>{
+    document.querySelector("h1").innerHTML="Best js course ever";
+}
+const changeMe=setTimeout(changeText,3000);
+
+//clearTimeout() method cancels a timeout previously established by calling setTimeout(). Here we pass the reference to the setTimeout
+document.querySelector("#stop").addEventListener("click",()=>{
+    clearTimeout(changeMe);
+    console.log("STOPPED");
+});
+
+</script>
+</html>
